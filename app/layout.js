@@ -10,7 +10,7 @@ const ovo = Ovo({
   weight: ["400"],
 });
 export const metadata = {
-  title: "Portfolio",
+  title: "Sri Harsha Srigiri",
   description: "",
 };
 
