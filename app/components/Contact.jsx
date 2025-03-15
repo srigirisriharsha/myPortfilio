@@ -1,6 +1,31 @@
+import { useState } from "react";
 import { assets } from "../../assets/assets";
 import Image from "next/image";
 const Contact = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "f6902b78-ed3e-404c-a625-259f5c43770b");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
   return (
     <div
       id="contact"
@@ -12,22 +37,25 @@ const Contact = () => {
         I'd love to hear from you! If you have any questions, comments, or
         feedback, please use the form below.
       </p>
-      <form className="max-w-2xl mx-auto">
+      <form className="max-w-2xl mx-auto" onSubmit={onSubmit}>
         <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
           <input
             type="text"
+            name="name"
             placeholder="Enter Your Name"
             required
             className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
           />
           <input
             type="email"
+            name="email"
             placeholder="Enter Your Email"
             required
             className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white"
           />
         </div>
         <textarea
+          name="message"
           rows={6}
           placeholder="Enter Your Message"
           required
@@ -40,6 +68,7 @@ const Contact = () => {
           Submit Now
           <Image src={assets.right_arrow_white} alt="" className="w-4" />
         </button>
+        <p className="mt-4">{result}</p>
       </form>
     </div>
   );

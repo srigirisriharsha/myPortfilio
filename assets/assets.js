@@ -156,3 +156,5 @@ export const toolsData = [
   assets.figma,
   assets.git,
 ];
+export const MyName = "Sri Harsha Srigiri";
+export const MyEmail = "srigirisriharsha@gmail.com";
