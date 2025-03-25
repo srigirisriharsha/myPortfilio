@@ -78,23 +78,23 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend project",
-    description: "Web Design",
+    title: "Process Automation Tracker",
+    description: "Web Application",
     bgImage: "/work-1.png",
   },
   {
-    title: "Geo based app",
-    description: "Mobile App",
+    title: "Business Management Tool",
+    description: "Web Application",
     bgImage: "/work-2.png",
   },
   {
-    title: "Photography site",
-    description: "Web Design",
+    title: "Fully Automated System Test",
+    description: "Desktop Application",
     bgImage: "/work-3.png",
   },
   {
-    title: "UI/UX designing",
-    description: "UI/UX Design",
+    title: "Job Check",
+    description: "Web Application",
     bgImage: "/work-4.png",
   },
 ];
@@ -133,13 +133,13 @@ export const infoList = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: "Languages",
-    description: "HTML, CSS, JavaScript React Js, Next Js",
+    description: "HTML, CSS, JavaScript, React Js, Next Js",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "B.Tech in Mechanical Engineering",
   },
   {
     icon: assets.project_icon,
@@ -151,9 +151,9 @@ export const infoList = [
 
 export const toolsData = [
   assets.vscode,
-  assets.firebase,
+  // assets.firebase,
   assets.mongodb,
-  assets.figma,
+  // assets.figma,
   assets.git,
 ];
 export const MyName = "Sri Harsha Srigiri";

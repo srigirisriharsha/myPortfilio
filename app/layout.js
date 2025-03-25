@@ -11,7 +11,7 @@ const ovo = Ovo({
 });
 export const metadata = {
   title: "Sri Harsha Srigiri",
-  description: "",
+  description: "Sri Harsha Srigiri portfolio",
 };
 
 export default function RootLayout({ children }) {
