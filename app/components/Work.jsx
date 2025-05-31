@@ -7,78 +7,92 @@ const Work = ({ isDarkMode }) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.3 }}
       id="work"
-      className="w-full px-[12%] py-10 scroll-mt-20"
+      className="w-full py-10 scroll-mt-20 dark:bg-gray-900"
     >
-      <motion.h4
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center mb-2 text-lg font-Ovo"
-      >
-        My Portfolio
-      </motion.h4>
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="text-center text-5xl font-Ovo"
-      >
-        My Latest Work
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
-      >
-        Welcome to my web deveopment portfolio! Explore a collection of projects
-        showcasing my expertise in front-end deveopment.
-      </motion.p>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h4
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-center mb-2 text-lg font-Ovo text-gray-700 dark:text-gray-300"
+        >
+          Professional Experience
+        </motion.h4>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.1 }}
+          className="text-center text-5xl font-Ovo dark:text-white"
+        >
+          Work History
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.15 }}
+          className="text-center max-w-3xl mx-auto mt-5 mb-12 font-Ovo text-gray-600 dark:text-gray-300"
+        >
+          Software Engineer with expertise in React.js, Next.js, and modern web
+          technologies, focused on building responsive and high-performance
+          applications.
+        </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
-        className="grid grid-cols-auto my-10 gap-5 dark:text-black"
-      >
-        {workData.map((project, index) => (
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            key={index}
-            className="w-64 h-64 bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group overflow-hidden"
-            style={{ backgroundImage: `url(${project.bgImage})` }}
-          >
-            <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 transform -translate-x-1/2 py-3 px-5 flex items-center justify-between transition-all duration-500 group-hover:bottom-7">
-              <div>
-                <h2 className="font-semibold">{project?.title}</h2>
-                <p className="text-sm text-gray-700">{project?.description}</p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.2 }}
+          className="space-y-8 max-w-4xl mx-auto"
+        >
+          {workData.map((experience, index) => (
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.15 }}
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-4">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    {experience.title}
+                  </h3>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mt-2">
+                    <p className="text-blue-600 dark:text-blue-400 font-medium">
+                      {experience.duration}
+                    </p>
+                    <div className="hidden sm:block text-gray-400">•</div>
+                    <p className="text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                      <Image
+                        src={
+                          isDarkMode
+                            ? assets.project_icon_dark
+                            : assets.project_icon
+                        }
+                        alt="Location"
+                        width={16}
+                        height={16}
+                      />
+                      {experience.location}
+                    </p>
+                  </div>
+                </div>
+                <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={isDarkMode ? assets.code_icon_dark : assets.code_icon}
+                    alt="Company icon"
+                    width={24}
+                    height={24}
+                  />
+                </div>
               </div>
-              <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                <Image src={assets.send_icon} alt="send icon" className="w-5" />
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-      <motion.a
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.1 }}
-        href=""
-        className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration:500 dark:text-white dark:border-white dark:hover:bg-darkHover"
-      >
-        Show more
-        <Image
-          src={
-            isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
-          }
-          alt="Right arrow"
-          className="w-4"
-        />
-      </motion.a>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                {experience.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
